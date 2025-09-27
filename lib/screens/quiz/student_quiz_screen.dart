@@ -4,7 +4,6 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:glauk/components/auth/auth_form.dart';
-import 'package:glauk/components/buttons/custom_floating_action.dart';
 import 'package:glauk/components/custom_dropdown_menu.dart';
 import 'package:glauk/components/utils/empty_widget.dart';
 import 'package:glauk/core/constants/constants.dart';

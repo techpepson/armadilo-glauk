@@ -22,6 +22,7 @@ class CourseData {
   final List<Map<String, dynamic>> courseSlides = [
     {
       'slideTitle': 'Computer Security Basics',
+      'pointsEarned': 20,
       'difficultyLevel': 'easy',
       'courseField': 'science',
       'rightAnswers': 1,
@@ -60,6 +61,7 @@ class CourseData {
     },
     {
       'slideTitle': 'Object-Oriented Programming',
+      'pointsEarned': 20,
       'courseField': 'science',
       'difficultyLevel': 'easy',
       'rightAnswers': 1,
@@ -91,6 +93,7 @@ class CourseData {
     },
     {
       'slideTitle': 'Data Structures',
+      'pointsEarned': 20,
       'courseField': 'science',
       'difficultyLevel': 'intermediate',
       'rightAnswers': 1,
@@ -117,6 +120,7 @@ class CourseData {
     },
     {
       'slideTitle': 'Networking Fundamentals',
+      'pointsEarned': 20,
       'courseField': 'computing',
       'difficultyLevel': 'intermediate',
       'rightAnswers': 1,
@@ -154,6 +158,7 @@ class CourseData {
     },
     {
       'slideTitle': 'Networking Fundamentals',
+      'pointsEarned': 20,
       'courseField': 'computing',
       'difficultyLevel': 'intermediate',
       'rightAnswers': 1,
@@ -191,6 +196,7 @@ class CourseData {
     },
     {
       'slideTitle': 'Networking Fundamentals',
+      'pointsEarned': 20,
       'courseField': 'computing',
       'difficultyLevel': 'intermediate',
       'rightAnswers': 1,
@@ -228,7 +234,7 @@ class CourseData {
     },
     {
       'slideTitle': 'Networking Fundamentals',
-
+      'pointsEarned': 20,
       'courseField': 'computing',
       'difficultyLevel': 'intermediate',
       'rightAnswers': 1,

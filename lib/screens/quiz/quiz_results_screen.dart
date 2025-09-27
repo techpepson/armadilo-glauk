@@ -43,9 +43,9 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildCourseDetailCard(),
+              _buildQuizResultsCard(),
               const SizedBox(height: 16),
-              _buildQuizDetailsCard(),
+              _buildPerformanceBreakDown(),
               const SizedBox(height: 16),
               _buildRulesAndRegulationsCard(),
               const SizedBox(height: 16),
@@ -60,75 +60,60 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
     );
   }
 
-  Widget _buildCourseDetailCard() {
+  Widget _buildQuizResultsCard() {
     return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: Constants.primary.withValues(alpha: 0.5)),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: Image.asset(
-                    widget.courseDisplayImage,
-                    width: 80,
-                    height: 80,
-                    fit: BoxFit.cover,
+      child: Column(
+        children: [
+          Container(child: Text(widget.courseSlides['scores'].toString())),
+          Text(widget.courseSlides['slideTitle']),
+          widget.courseSlides['scores'] > 60
+              ? Text('Great job! You did well! 👏')
+              : Text('Better luck next time!'),
+          Row(
+            children: [
+              Column(
+                children: [
+                  Text(
+                    '${widget.courseSlides['rightAnswers']} / ${widget.courseSlides['questions'].length}',
                   ),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.courseSlides['slideTitle'],
-                        style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.w700,
-                          fontFamily: Constants.inter,
-                        ),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(height: 8),
-                      Wrap(
-                        spacing: 8,
-                        runSpacing: 8,
-                        children: [
-                          _buildChip(
-                            label: widget.courseSlides['courseField'],
-                            icon: Icons.category_outlined,
-                          ),
-                          _buildChip(
-                            label: widget.courseSlides['difficultyLevel'],
-                            icon: Icons.auto_awesome,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-            Text(
-              'Test your knowledge in ${widget.courseSlides['slideTitle']} with these practice questions',
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: Theme.of(
-                  context,
-                ).textTheme.bodyLarge?.color?.withValues(alpha: 0.8),
+                  Text('Right Answers'),
+                ],
               ),
-            ),
-          ],
-        ),
+              Column(
+                children: [
+                  Text('${widget.courseSlides['completeTime']} min'),
+                  Text('Time Spent'),
+                ],
+              ),
+              Column(),
+            ],
+          ),
+          Text('⭐ ${widget.courseSlides['pointsEarned']} XP Earned'),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildPerformanceBreakDown() {
+    return Card(
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Icon(Constants.targetIcon),
+              Text('Performance Breakdown'),
+            ],
+          ),
+          Row(
+            children: [
+              Text('Overall Score'),
+              Text(widget.courseSlides['scores'].toString()),
+            ],
+          ),
+          LinearProgressIndicator(value: widget.courseSlides['scores'] / 100),
+
+          //show correct and wrong answers
+        ],
       ),
     );
   }
@@ -199,60 +184,6 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                 ).textTheme.bodySmall?.color?.withValues(alpha: 0.7),
               ),
               textAlign: TextAlign.center,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildQuizDetailsCard() {
-    final questionsCount = widget.courseSlides['questions']?.length ?? 0;
-    final estimatedTime = _calculateEstimatedTime(questionsCount);
-
-    return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-        side: BorderSide(color: Constants.primary.withValues(alpha: 0.5)),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Quiz Details',
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w700,
-                fontFamily: Constants.inter,
-              ),
-            ),
-            const SizedBox(height: 16),
-            Row(
-              children: [
-                _buildQuizDetailItem(
-                  Icons.quiz_outlined,
-                  questionsCount.toString(),
-                  'Questions',
-                ),
-                _buildQuizDetailItem(
-                  Icons.timer_outlined,
-                  '$estimatedTime min',
-                  'Duration',
-                ),
-              ],
-            ),
-            const SizedBox(height: 8),
-            Row(
-              children: [
-                _buildQuizDetailItem(
-                  Constants.workSpacePremiumIcon,
-                  '100',
-                  'Points',
-                ),
-                _buildQuizDetailItem(Constants.starIcon, '+100', 'XP Rewards'),
-              ],
             ),
           ],
         ),
