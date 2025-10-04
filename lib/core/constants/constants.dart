@@ -5,6 +5,7 @@ class Constants {
   static const String cormorantGaramond = 'CormorantGaramond';
   static const String roboto = 'Roboto';
   static const String inter = 'Inter';
+  static const String glauk = 'Glauk';
 
   //sizes
   static const double horizontalPadding = 16;

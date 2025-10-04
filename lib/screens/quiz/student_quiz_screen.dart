@@ -473,40 +473,8 @@ class _StudentQuizScreenState extends State<StudentQuizScreen> {
                   scoreComplement = 'Keep Learning';
               }
               final studyField = course['courseField'] ?? 'science';
-              switch (studyField) {
-                case 'science':
-                  courseDisplayImage = Constants.scienceImage;
-                  break;
-                case 'computing':
-                  courseDisplayImage = Constants.computingImage;
-                  break;
-                case 'business':
-                  courseDisplayImage = Constants.businessImage;
-                  break;
-                case 'arts':
-                  courseDisplayImage = Constants.artsImage;
-                  break;
-                case 'english':
-                  courseDisplayImage = Constants.englishImage;
-                  break;
-                case 'humanities':
-                  courseDisplayImage = Constants.humanitiesImage;
-                  break;
-                case 'languages':
-                  courseDisplayImage = Constants.languagesImage;
-                  break;
-                case 'maths':
-                  courseDisplayImage = Constants.mathsImage;
-                  break;
-                case 'others':
-                  courseDisplayImage = Constants.othersImage;
-                  break;
-                case 'statistics':
-                  courseDisplayImage = Constants.statisticsImage;
-                  break;
-                default:
-                  courseDisplayImage = Constants.scienceImage;
-              }
+              final displayImage = utilService.getDisplayImage(studyField);
+              courseDisplayImage = displayImage;
 
               switch (completeTime) {
                 case 0:
@@ -703,6 +671,10 @@ class _StudentQuizScreenState extends State<StudentQuizScreen> {
                               child: OutlinedButton.icon(
                                 onPressed: () {
                                   // Handle take/retake quiz
+                                  context.go(
+                                    '/take-quiz',
+                                    extra: {'questions': course},
+                                  );
                                 },
                                 icon: const Icon(
                                   Icons.play_arrow_rounded,

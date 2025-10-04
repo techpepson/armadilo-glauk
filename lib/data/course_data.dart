@@ -36,6 +36,9 @@ class CourseData {
       'questions': [
         {
           'query': 'What is the primary goal of computer security?',
+          'isCorrect': true,
+          'reasonForCorrect': 'Transmission Control Protocol/Internet Protocol',
+          'reasonForIncorrect': 'Transmission Check Protocol/Internet Protocol',
           'answer': 1,
           'options': [
             {
@@ -49,6 +52,9 @@ class CourseData {
         },
         {
           'query': 'Which of these is NOT a type of malware?',
+          'isCorrect': true,
+          'reasonForCorrect': 'Transmission Control Protocol/Internet Protocol',
+          'reasonForIncorrect': 'Transmission Check Protocol/Internet Protocol',
           'answer': 4,
           'options': [
             {'option': 'Virus', 'optionId': 1},
@@ -75,6 +81,29 @@ class CourseData {
       'questions': [
         {
           'query': 'What are the four pillars of OOP?',
+
+          'answer': 1,
+          'options': [
+            {
+              'option': 'Variables, Functions, Loops, Conditionals',
+              'isCorrect': true,
+              'reasonForCorrect':
+                  'Transmission Control Protocol/Internet Protocol',
+              'optionId': 1,
+            },
+            {
+              'option': 'Encapsulation, Inheritance, Polymorphism, Abstraction',
+              'optionId': 2,
+            },
+            {'option': 'Classes, Objects, Methods, Properties', 'optionId': 3},
+            {'option': 'Public, Private, Protected, Default', 'optionId': 4},
+          ],
+        },
+        {
+          'query': 'What are the four pillars of OOP?',
+          'isCorrect': false,
+          'reasonForCorrect': 'Transmission Control Protocol/Internet Protocol',
+          'reasonForIncorrect': 'Transmission Check Protocol/Internet Protocol',
           'answer': 2,
           'options': [
             {
@@ -86,6 +115,106 @@ class CourseData {
               'optionId': 2,
             },
             {'option': 'Classes, Objects, Methods, Properties', 'optionId': 3},
+            {'option': 'Public, Private, Protected, Default', 'optionId': 4},
+          ],
+        },
+        {
+          'query': 'What are the four pillars of OOP?',
+          'isCorrect': false,
+          'reasonForCorrect': 'Transmission Control Protocol/Internet Protocol',
+          'reasonForIncorrect': 'Transmission Check Protocol/Internet Protocol',
+          'answer': 3,
+          'options': [
+            {
+              'option': 'Variables, Functions, Loops, Conditionals',
+              'optionId': 1,
+            },
+            {
+              'option': 'Encapsulation, Inheritance, Polymorphism, Abstraction',
+              'optionId': 2,
+            },
+            {'option': 'Classes, Objects, Methods, Properties', 'optionId': 3},
+            {'option': 'Public, Private, Protected, Default', 'optionId': 4},
+          ],
+        },
+        {
+          'query': 'What are the four pillars of OOP?',
+          'answer': 1,
+          'options': [
+            {
+              'option': 'Variables, Functions, Loops, Conditionals',
+              'optionId': 1,
+            },
+            {
+              'option': 'Encapsulation, Inheritance, Polymorphism, Abstraction',
+              'isCorrect': true,
+              'reasonForCorrect':
+                  'Transmission Control Protocol/Internet Protocol',
+              'optionId': 2,
+            },
+            {'option': 'Classes, Objects, Methods, Properties', 'optionId': 3},
+            {'option': 'Public, Private, Protected, Default', 'optionId': 4},
+          ],
+        },
+        {
+          'query': 'What are the four pillars of OOP?',
+          'answer': 3,
+          'options': [
+            {
+              'option': 'Variables, Functions, Loops, Conditionals',
+              'optionId': 1,
+            },
+            {
+              'option': 'Encapsulation, Inheritance, Polymorphism, Abstraction',
+              'optionId': 3,
+              'isCorrect': true,
+              'reasonForCorrect':
+                  'Transmission Control Protocol/Internet Protocol',
+            },
+            {'option': 'Classes, Objects, Methods, Properties', 'optionId': 3},
+            {'option': 'Public, Private, Protected, Default', 'optionId': 4},
+          ],
+        },
+        {
+          'query': 'What are the four pillars of OOP?',
+          'answer': 4,
+          'options': [
+            {
+              'option': 'Variables, Functions, Loops, Conditionals',
+              'optionId': 1,
+            },
+            {
+              'option': 'Encapsulation, Inheritance, Polymorphism, Abstraction',
+              'optionId': 4,
+              'isCorrect': true,
+              'reasonForCorrect':
+                  'Transmission Control Protocol/Internet Protocol',
+            },
+            {'option': 'Classes, Objects, Methods, Properties', 'optionId': 3},
+            {'option': 'Public, Private, Protected, Default', 'optionId': 4},
+          ],
+        },
+        {
+          'query': 'What do you think about the computer networking?',
+          'answer': 3,
+          'options': [
+            {
+              'option': 'Variables, Functions, Loops, Conditionals',
+              'optionId': 1,
+            },
+            {
+              'option': 'Encapsulation, Inheritance, Polymorphism, Abstraction',
+              'optionId': 2,
+            },
+            {
+              'option': 'Classes, Objects, Methods, Properties',
+              'optionId': 3,
+              'isCorrect': true,
+              'reasonForCorrect':
+                  'Transmission Control Protocol/Internet Protocol',
+              'reasonForIncorrect':
+                  'Transmission Check Protocol/Internet Protocol',
+            },
             {'option': 'Public, Private, Protected, Default', 'optionId': 4},
           ],
         },
@@ -108,6 +237,9 @@ class CourseData {
         {
           'query':
               'What is the time complexity of accessing an element in an array by index?',
+          'isCorrect': true,
+          'reasonForCorrect': 'Transmission Control Protocol/Internet Protocol',
+          'reasonForIncorrect': 'Transmission Check Protocol/Internet Protocol',
           'answer': 3,
           'options': [
             {'option': 'O(n)', 'optionId': 1},
@@ -134,6 +266,91 @@ class CourseData {
       'questions': [
         {
           'query': 'What does TCP/IP stand for?',
+          'isCorrect': true,
+          'reasonForCorrect': 'Transmission Control Protocol/Internet Protocol',
+          'reasonForIncorrect': 'Transmission Check Protocol/Internet Protocol',
+          'answer': 1,
+          'options': [
+            {
+              'option': 'Transmission Control Protocol/Internet Protocol',
+              'optionId': 1,
+            },
+            {
+              'option': 'Transmission Check Protocol/Internet Protocol',
+              'optionId': 2,
+            },
+            {
+              'option': 'Transfer Control Protocol/Internet Protocol',
+              'optionId': 3,
+            },
+            {
+              'option': 'Transmission Control Process/Internet Process',
+              'optionId': 4,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      'slideTitle': 'Networking Fundamentals',
+      'pointsEarned': 20,
+      'courseField': 'computing',
+      'difficultyLevel': 'intermediate',
+      'rightAnswers': 1,
+      'questionsReview': "The questions were great",
+      'completeTime': 15, //in minutes
+      'slideId': 4,
+      'courseId': 4,
+      'slideUploadTime': '2025-08-25',
+      'solutionStatus': 'pending',
+      'scores': 0.0,
+      'questions': [
+        {
+          'query': 'What does TCP/IP stand for?',
+          'isCorrect': true,
+          'reasonForCorrect': 'Transmission Control Protocol/Internet Protocol',
+          'reasonForIncorrect': 'Transmission Check Protocol/Internet Protocol',
+          'answer': 1,
+          'options': [
+            {
+              'option': 'Transmission Control Protocol/Internet Protocol',
+              'optionId': 1,
+            },
+            {
+              'option': 'Transmission Check Protocol/Internet Protocol',
+              'optionId': 2,
+            },
+            {
+              'option': 'Transfer Control Protocol/Internet Protocol',
+              'optionId': 3,
+            },
+            {
+              'option': 'Transmission Control Process/Internet Process',
+              'optionId': 4,
+            },
+          ],
+        },
+      ],
+    },
+    {
+      'slideTitle': 'Networking Fundamentals',
+      'pointsEarned': 20,
+      'courseField': 'computing',
+      'difficultyLevel': 'intermediate',
+      'rightAnswers': 1,
+      'questionsReview': "The questions were great",
+      'completeTime': 15, //in minutes
+      'slideId': 4,
+      'courseId': 4,
+      'slideUploadTime': '2025-08-25',
+      'solutionStatus': 'pending',
+      'scores': 0.0,
+      'questions': [
+        {
+          'query': 'What does TCP/IP stand for?',
+          'isCorrect': true,
+          'reasonForCorrect': 'Transmission Control Protocol/Internet Protocol',
+          'reasonForIncorrect': 'Transmission Check Protocol/Internet Protocol',
           'answer': 1,
           'options': [
             {
@@ -173,82 +390,9 @@ class CourseData {
         {
           'query': 'What does TCP/IP stand for?',
           'answer': 1,
-          'options': [
-            {
-              'option': 'Transmission Control Protocol/Internet Protocol',
-              'optionId': 1,
-            },
-            {
-              'option': 'Transmission Check Protocol/Internet Protocol',
-              'optionId': 2,
-            },
-            {
-              'option': 'Transfer Control Protocol/Internet Protocol',
-              'optionId': 3,
-            },
-            {
-              'option': 'Transmission Control Process/Internet Process',
-              'optionId': 4,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      'slideTitle': 'Networking Fundamentals',
-      'pointsEarned': 20,
-      'courseField': 'computing',
-      'difficultyLevel': 'intermediate',
-      'rightAnswers': 1,
-      'questionsReview': "The questions were great",
-      'completeTime': 15, //in minutes
-      'slideId': 4,
-      'courseId': 4,
-      'slideUploadTime': '2025-08-25',
-      'solutionStatus': 'pending',
-      'scores': 0.0,
-      'questions': [
-        {
-          'query': 'What does TCP/IP stand for?',
-          'answer': 1,
-          'options': [
-            {
-              'option': 'Transmission Control Protocol/Internet Protocol',
-              'optionId': 1,
-            },
-            {
-              'option': 'Transmission Check Protocol/Internet Protocol',
-              'optionId': 2,
-            },
-            {
-              'option': 'Transfer Control Protocol/Internet Protocol',
-              'optionId': 3,
-            },
-            {
-              'option': 'Transmission Control Process/Internet Process',
-              'optionId': 4,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      'slideTitle': 'Networking Fundamentals',
-      'pointsEarned': 20,
-      'courseField': 'computing',
-      'difficultyLevel': 'intermediate',
-      'rightAnswers': 1,
-      'questionsReview': "The questions were great",
-      'completeTime': 15, //in minutes
-      'slideId': 4,
-      'courseId': 4,
-      'slideUploadTime': '2025-08-25',
-      'solutionStatus': 'pending',
-      'scores': 0.0,
-      'questions': [
-        {
-          'query': 'What does TCP/IP stand for?',
-          'answer': 1,
+          'isCorrect': true,
+          'reasonForCorrect': 'Transmission Control Protocol/Internet Protocol',
+          'reasonForIncorrect': 'Transmission Check Protocol/Internet Protocol',
           'options': [
             {
               'option': 'Transmission Control Protocol/Internet Protocol',

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:glauk/core/constants/constants.dart';
+import 'package:go_router/go_router.dart';
 
 class QuizReviewScreen extends StatefulWidget {
   const QuizReviewScreen({
@@ -423,7 +424,10 @@ class _QuizReviewScreenState extends State<QuizReviewScreen> {
           ),
           ElevatedButton.icon(
             onPressed: () {
-              // TODO: Implement start quiz
+              context.go(
+                '/take-quiz',
+                extra: {'questions': widget.courseSlides},
+              );
             },
             icon: const Icon(Icons.play_arrow_rounded, size: 20),
             label: const Text('Start Quiz'),

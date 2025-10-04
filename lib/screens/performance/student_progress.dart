@@ -76,7 +76,7 @@ class _StudentProgressState extends State<StudentProgress> {
             child: Center(
               child: ListView(
                 scrollDirection: Axis.vertical,
-
+                physics: PageScrollPhysics(),
                 children: [
                   SizedBox(height: Constants.verticalPadding),
                   _buildGpaCard(),
