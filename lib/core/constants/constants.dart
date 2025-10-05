@@ -27,7 +27,7 @@ class Constants {
   static const Color secondary = Color(0xFFF28500);
   static const Color error = Color(0xFFC71A11);
   static const Color success = Color(0xFF04841A);
-  static const Color appBg = Color(0xFFFBFCDD);
+  static const Color appBg = Color.fromARGB(255, 255, 255, 254);
   static const Color greyedText = Color.fromARGB(255, 145, 143, 143);
   static const Color textColor = Color(0xFF191917);
 
