@@ -16,12 +16,36 @@ final ThemeData appTheme = ThemeData(
     onSurface: const Color(0xFF191917),
   ),
   textTheme: TextTheme(
-    titleLarge: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-    titleMedium: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-    titleSmall: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-    bodyLarge: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-    bodyMedium: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-    bodySmall: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+    titleLarge: TextStyle(
+      fontSize: 28,
+      fontWeight: FontWeight.bold,
+      overflow: TextOverflow.ellipsis,
+    ),
+    titleMedium: TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.bold,
+      overflow: TextOverflow.ellipsis,
+    ),
+    titleSmall: TextStyle(
+      fontSize: 20,
+      fontWeight: FontWeight.bold,
+      overflow: TextOverflow.ellipsis,
+    ),
+    bodyLarge: TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+      overflow: TextOverflow.ellipsis,
+    ),
+    bodyMedium: TextStyle(
+      fontSize: 14,
+      fontWeight: FontWeight.bold,
+      overflow: TextOverflow.ellipsis,
+    ),
+    bodySmall: TextStyle(
+      fontSize: 12,
+      fontWeight: FontWeight.bold,
+      overflow: TextOverflow.ellipsis,
+    ),
   ),
   inputDecorationTheme: InputDecorationTheme(
     labelStyle: TextStyle(color: Colors.black),
