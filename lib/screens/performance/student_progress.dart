@@ -7,13 +7,6 @@ import 'package:glassmorphism_ui/glassmorphism_ui.dart';
 import 'package:glauk/data/student_data.dart';
 import 'package:step_progress_indicator/step_progress_indicator.dart';
 
-//add course description and also student level
-//let students edit the number of weeks of the sem so that we generate exams based on the week they are
-//The students should also upload their slides for all courses,with weeks attached and exams will be generated each day for that course and slides, with grades and performance tracking
-//After 3 weeks, examine the student on all slides for a particular course
-//At about the final week, a final exam will be taken before the exams.
-//student behaviour should also be monitored, as to whether they take tests and why they don't, to check issues of procrastination and all
-//every exam taken should have an attendance field, which will help predict user's attendance level.
 class StudentProgress extends StatefulWidget {
   const StudentProgress({super.key});
 
@@ -22,7 +15,8 @@ class StudentProgress extends StatefulWidget {
 }
 
 class _StudentProgressState extends State<StudentProgress> {
-  final String userImage = "";
+  final String userImage =
+      "https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmxhY2slMjBtYW58ZW58MHx8MHx8fDA%3D";
 
   final StudentData studentData = StudentData();
 
@@ -69,25 +63,31 @@ class _StudentProgressState extends State<StudentProgress> {
           ],
         ),
       ),
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          return ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: constraints.maxWidth),
-            child: Center(
-              child: ListView(
-                scrollDirection: Axis.vertical,
-                physics: PageScrollPhysics(),
-                children: [
-                  SizedBox(height: Constants.verticalPadding),
-                  _buildGpaCard(),
-                  SizedBox(height: Constants.verticalPadding),
-                  _buildCourseTable(),
-                  SizedBox(height: Constants.verticalPadding),
-                ],
-              ),
-            ),
-          );
+      body: RefreshIndicator(
+        color: Constants.primary,
+        onRefresh: () {
+          return Future.delayed(const Duration(seconds: 2));
         },
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: constraints.maxWidth),
+              child: Center(
+                child: ListView(
+                  scrollDirection: Axis.vertical,
+                  physics: PageScrollPhysics(),
+                  children: [
+                    SizedBox(height: Constants.verticalPadding),
+                    _buildGpaCard(),
+                    SizedBox(height: Constants.verticalPadding),
+                    _buildCourseTable(),
+                    SizedBox(height: Constants.verticalPadding),
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

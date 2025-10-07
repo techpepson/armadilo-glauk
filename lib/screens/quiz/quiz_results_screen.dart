@@ -84,6 +84,8 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
             ),
             child: Center(
               child: Text(
+                overflow: TextOverflow.clip,
+                textAlign: TextAlign.start,
                 '${widget.courseSlides['scores'].toString()}%',
                 style: const TextStyle(
                   fontSize: 24,
@@ -97,6 +99,8 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
           Column(
             children: [
               Text(
+                overflow: TextOverflow.clip,
+                textAlign: TextAlign.start,
                 widget.courseSlides['slideTitle'],
                 style: Theme.of(
                   context,
@@ -105,6 +109,8 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
               const SizedBox(height: 8),
               widget.courseSlides['scores'] > 60
                   ? Text(
+                    overflow: TextOverflow.clip,
+                    textAlign: TextAlign.start,
                     'Great job! You did well! 👏',
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Constants.textColor.withAlpha(170),
@@ -125,6 +131,8 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
               Column(
                 children: [
                   Text(
+                    overflow: TextOverflow.clip,
+                    textAlign: TextAlign.start,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Constants.textColor.withAlpha(170),
                     ),
@@ -157,6 +165,8 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
               Column(
                 children: [
                   Text(
+                    overflow: TextOverflow.clip,
+                    textAlign: TextAlign.start,
                     '⭐ ${widget.courseSlides['pointsEarned']} XP',
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Constants.textColor.withAlpha(170),
@@ -202,6 +212,8 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
+                  overflow: TextOverflow.clip,
+                  textAlign: TextAlign.start,
                   'Overall Score',
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     color: Constants.textColor.withAlpha(170),
@@ -209,6 +221,8 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                 ),
 
                 Text(
+                  overflow: TextOverflow.clip,
+                  textAlign: TextAlign.start,
                   '${widget.courseSlides['scores'].toString()}%',
                   style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                     color: Constants.success.withAlpha(170),
@@ -221,6 +235,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
               minHeight: 15,
               value: widget.courseSlides['scores'] / 100,
               color: Constants.textColor,
+              valueColor: AlwaysStoppedAnimation<Color>(Constants.primary),
               stopIndicatorRadius: 20,
               borderRadius: BorderRadius.circular(10),
               backgroundColor: Constants.greyedText,
@@ -236,8 +251,14 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                     SizedBox(width: 8),
                     Column(
                       children: [
-                        Text('${widget.courseSlides['rightAnswers']} '),
                         Text(
+                          overflow: TextOverflow.clip,
+                          textAlign: TextAlign.start,
+                          '${widget.courseSlides['rightAnswers']} ',
+                        ),
+                        Text(
+                          overflow: TextOverflow.clip,
+                          textAlign: TextAlign.start,
                           'Correct',
                           style: Theme.of(
                             context,
@@ -256,9 +277,13 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                     Column(
                       children: [
                         Text(
+                          overflow: TextOverflow.clip,
+                          textAlign: TextAlign.start,
                           '${widget.courseSlides['questions'].length - widget.courseSlides['rightAnswers']}',
                         ),
                         Text(
+                          overflow: TextOverflow.clip,
+                          textAlign: TextAlign.start,
                           'Incorrect',
                           style: Theme.of(
                             context,
@@ -289,6 +314,8 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
+              overflow: TextOverflow.clip,
+              textAlign: TextAlign.start,
               'Question Review',
               style: Theme.of(
                 context,
@@ -319,13 +346,13 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                     Row(
                       children: [
                         Text('${index + 1} .'),
-                        Text(
-                          '${question['query']}',
-                          style: Theme.of(
-                            context,
-                          ).textTheme.bodyLarge?.copyWith(
-                            // color: Constants.textColor.withAlpha(190),
-                            fontWeight: FontWeight.bold,
+                        Expanded(
+                          child: Text(
+                            overflow: TextOverflow.clip,
+                            textAlign: TextAlign.start,
+                            '${question['query']}',
+                            style: Theme.of(context).textTheme.bodyLarge
+                                ?.copyWith(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
@@ -366,6 +393,8 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                               padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
+                                  overflow: TextOverflow.clip,
+                                  textAlign: TextAlign.start,
                                   option['option']?.toString() ?? 'N/A',
                                   style: Theme.of(
                                     context,
@@ -415,6 +444,8 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                 },
                 icon: Icon(Icons.arrow_forward, size: 20, color: Colors.white),
                 label: Text(
+                  overflow: TextOverflow.clip,
+                  textAlign: TextAlign.start,
                   'Continue To Quizzes',
                   style: Theme.of(
                     context,
@@ -442,7 +473,11 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
               );
             },
             icon: Icon(Icons.refresh, size: 20),
-            label: Text('Retake Quiz'),
+            label: Text(
+              overflow: TextOverflow.clip,
+              textAlign: TextAlign.start,
+              'Retake Quiz',
+            ),
             style: ElevatedButton.styleFrom(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
               shape: RoundedRectangleBorder(

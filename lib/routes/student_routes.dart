@@ -28,10 +28,6 @@ class _StudentRoutesState extends State<StudentRoutes> {
             label: 'Performance',
           ),
           NavigationDestination(icon: Icon(Icons.quiz_outlined), label: 'Quiz'),
-          // NavigationDestination(
-          //   icon: Icon(Icons.school_outlined),
-          //   label: 'Exams',
-          // ),
           NavigationDestination(
             icon: Icon(Icons.bar_chart_outlined),
             label: 'Analytics',

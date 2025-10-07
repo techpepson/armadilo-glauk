@@ -144,14 +144,20 @@ class _StudentQuizScreenState extends State<StudentQuizScreen> {
         builder: (context, constraints) {
           return ConstrainedBox(
             constraints: BoxConstraints(maxWidth: constraints.maxWidth),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  _buildLevelBar(),
-                  _buildScoreCards(),
-                  _buildQuizStatus(),
-                  _buildExamCard(),
-                ],
+            child: RefreshIndicator(
+              color: Constants.primary,
+              onRefresh: () {
+                return Future.delayed(const Duration(seconds: 2));
+              },
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    _buildLevelBar(),
+                    _buildScoreCards(),
+                    _buildQuizStatus(),
+                    _buildExamCard(),
+                  ],
+                ),
               ),
             ),
           );
@@ -577,16 +583,17 @@ class _StudentQuizScreenState extends State<StudentQuizScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
+                                    textAlign: TextAlign.start,
                                     course['slideTitle'] ?? 'Untitled Quiz',
                                     style: Theme.of(context)
                                         .textTheme
                                         .titleMedium
                                         ?.copyWith(fontWeight: FontWeight.w600),
                                     maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
                                   ),
                                   const SizedBox(height: 4),
                                   Text(
+                                    textAlign: TextAlign.start,
                                     'Uploaded: ${course['slideUploadTime']}',
                                     style: Theme.of(
                                       context,
@@ -899,7 +906,7 @@ class _StudentQuizScreenState extends State<StudentQuizScreen> {
                                 ),
                                 Expanded(
                                   child: Text(
-                                    overflow: TextOverflow.ellipsis,
+                                    textAlign: TextAlign.start,
                                     style:
                                         Theme.of(context).textTheme.bodyLarge,
                                     selectedFile!.name.toString(),

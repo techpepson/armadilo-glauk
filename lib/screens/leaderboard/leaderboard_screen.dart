@@ -22,61 +22,68 @@ class _LeaderboardScreenState extends State<LeaderboardScreen> {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Leaderboard')),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _SummaryStats(
-              totalStudents: analytics.totalStudents,
-              totalSlides: analytics.totalCourseSlides,
-              totalQuizzes: analytics.totalQuizzesTaken,
-            ),
-            const SizedBox(height: 16),
-            _Section(
-              icon: Icons.whatshot_sharp,
-              title: 'Top Streaks',
-              child: _RankedList(
-                items: topStreaks,
-                primaryValueKey: 'longestStreak',
-                secondaryLabelBuilder: (u) => 'Current: ${u['currentStreak']}d',
-                valueSuffix: 'd',
+      body: RefreshIndicator(
+        color: Constants.primary,
+        onRefresh: () {
+          return Future.delayed(const Duration(seconds: 2));
+        },
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _SummaryStats(
+                totalStudents: analytics.totalStudents,
+                totalSlides: analytics.totalCourseSlides,
+                totalQuizzes: analytics.totalQuizzesTaken,
               ),
-            ),
-            const SizedBox(height: 16),
-            if (me != null)
+              const SizedBox(height: 16),
               _Section(
-                icon: Icons.whatshot_outlined,
-                title: 'Your Streak',
-                child: _MyStatCard(
-                  name: me['name'],
-                  current: me['currentStreak'],
-                  longest: me['longestStreak'],
+                icon: Icons.whatshot_sharp,
+                title: 'Top Streaks',
+                child: _RankedList(
+                  items: topStreaks,
+                  primaryValueKey: 'longestStreak',
+                  secondaryLabelBuilder:
+                      (u) => 'Current: ${u['currentStreak']}d',
+                  valueSuffix: 'd',
                 ),
               ),
-            const SizedBox(height: 16),
-            _Section(
-              icon: Icons.quiz,
-              title: 'Top Scorers (Avg %)',
-              child: _RankedList(
-                items: topScorers,
-                primaryValueKey: 'avgScore',
-                valueSuffix: '%',
-                secondaryLabelBuilder: (u) => '${u['quizzesTaken']} quizzes',
+              const SizedBox(height: 16),
+              if (me != null)
+                _Section(
+                  icon: Icons.whatshot_outlined,
+                  title: 'Your Streak',
+                  child: _MyStatCard(
+                    name: me['name'],
+                    current: me['currentStreak'],
+                    longest: me['longestStreak'],
+                  ),
+                ),
+              const SizedBox(height: 16),
+              _Section(
+                icon: Icons.quiz,
+                title: 'Top Scorers (Avg %)',
+                child: _RankedList(
+                  items: topScorers,
+                  primaryValueKey: 'avgScore',
+                  valueSuffix: '%',
+                  secondaryLabelBuilder: (u) => '${u['quizzesTaken']} quizzes',
+                ),
               ),
-            ),
-            const SizedBox(height: 16),
-            _Section(
-              icon: Icons.slideshow,
-              title: 'Most Slides Completed',
-              child: _RankedList(
-                items: mostSlides,
-                primaryValueKey: 'slidesCompleted',
-                valueSuffix: '',
-                secondaryLabelBuilder: (u) => '${u['totalPoints']} pts',
+              const SizedBox(height: 16),
+              _Section(
+                icon: Icons.slideshow,
+                title: 'Most Slides Completed',
+                child: _RankedList(
+                  items: mostSlides,
+                  primaryValueKey: 'slidesCompleted',
+                  valueSuffix: '',
+                  secondaryLabelBuilder: (u) => '${u['totalPoints']} pts',
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

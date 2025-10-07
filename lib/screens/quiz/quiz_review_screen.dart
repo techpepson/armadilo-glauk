@@ -91,13 +91,13 @@ class _QuizReviewScreenState extends State<QuizReviewScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
+                        textAlign: TextAlign.start,
                         widget.courseSlides['slideTitle'],
                         style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.w700,
                           fontFamily: Constants.inter,
                         ),
                         maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
                       ),
                       const SizedBox(height: 8),
                       Wrap(

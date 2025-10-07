@@ -3,6 +3,8 @@ import 'package:glauk/routes/student_routes.dart';
 import 'package:glauk/screens/analytics/analytics_screen.dart';
 import 'package:glauk/screens/auth/login_screen.dart';
 import 'package:glauk/screens/auth/register_screen.dart';
+import 'package:glauk/screens/notifications/notifications_screen.dart';
+import 'package:glauk/screens/profile/profile_screen.dart';
 import 'package:glauk/screens/quiz/quiz_results_screen.dart';
 import 'package:glauk/screens/quiz/quiz_review_screen.dart';
 import 'package:glauk/screens/quiz/student_quiz_screen.dart';
@@ -32,6 +34,31 @@ final GoRouter appRouter = GoRouter(
         );
       },
     ),
+
+    GoRoute(
+      path: '/notifications',
+      pageBuilder:
+          (context, state) => CustomTransitionPage(
+            child: NotificationsScreen(),
+            transitionsBuilder: (
+              context,
+              animation,
+              secondaryAnimation,
+              child,
+            ) {
+              return SlideTransition(
+                position: animation.drive(
+                  Tween<Offset>(
+                    begin: const Offset(1.0, 0.0),
+                    end: Offset.zero,
+                  ),
+                ),
+                child: child,
+              );
+            },
+          ),
+    ),
+
     GoRoute(
       path: '/quiz-results',
       builder: (context, state) {
@@ -60,10 +87,25 @@ final GoRouter appRouter = GoRouter(
           routes: [
             GoRoute(
               path: '/student-performance',
-              builder:
-                  (context, state) => FutureBuilder(
-                    future: Future.delayed(const Duration(seconds: 2)),
-                    builder: (context, snapshot) => const StudentProgress(),
+              pageBuilder:
+                  (context, state) => CustomTransitionPage(
+                    child: StudentProgress(),
+                    transitionsBuilder: (
+                      context,
+                      animation,
+                      secondaryAnimation,
+                      child,
+                    ) {
+                      return SlideTransition(
+                        position: animation.drive(
+                          Tween<Offset>(
+                            begin: const Offset(1.0, 0.0),
+                            end: Offset.zero,
+                          ),
+                        ),
+                        child: child,
+                      );
+                    },
                   ),
             ),
           ],
@@ -73,36 +115,53 @@ final GoRouter appRouter = GoRouter(
           routes: [
             GoRoute(
               path: '/student-quiz',
-              builder:
-                  (context, state) => FutureBuilder(
-                    future: Future.delayed(const Duration(seconds: 2)),
-                    builder: (context, snapshot) => const StudentQuizScreen(),
+              pageBuilder:
+                  (context, state) => CustomTransitionPage(
+                    child: StudentQuizScreen(),
+                    transitionsBuilder: (
+                      context,
+                      animation,
+                      secondaryAnimation,
+                      child,
+                    ) {
+                      return SlideTransition(
+                        position: animation.drive(
+                          Tween<Offset>(
+                            begin: const Offset(1.0, 0.0),
+                            end: Offset.zero,
+                          ),
+                        ),
+                        child: child,
+                      );
+                    },
                   ),
             ),
           ],
         ),
-        // Groups Branch
-        // StatefulShellBranch(
-        //   routes: [
-        //     GoRoute(
-        //       path: '/student-groups',
-        //       builder:
-        //           (context, state) => FutureBuilder(
-        //             future: Future.delayed(const Duration(seconds: 2)),
-        //             builder: (context, snapshot) => const Placeholder(),
-        //           ),
-        //     ),
-        //   ],
-        // ),
         // Analytics Branch
         StatefulShellBranch(
           routes: [
             GoRoute(
               path: '/student-analytics',
-              builder:
-                  (context, state) => FutureBuilder(
-                    future: Future.delayed(const Duration(seconds: 2)),
-                    builder: (context, snapshot) => const AnalyticsScreen(),
+              pageBuilder:
+                  (context, state) => CustomTransitionPage(
+                    child: AnalyticsScreen(),
+                    transitionsBuilder: (
+                      context,
+                      animation,
+                      secondaryAnimation,
+                      child,
+                    ) {
+                      return SlideTransition(
+                        position: animation.drive(
+                          Tween<Offset>(
+                            begin: const Offset(1.0, 0.0),
+                            end: Offset.zero,
+                          ),
+                        ),
+                        child: child,
+                      );
+                    },
                   ),
             ),
           ],
@@ -111,11 +170,26 @@ final GoRouter appRouter = GoRouter(
         StatefulShellBranch(
           routes: [
             GoRoute(
-              path: '/profile',
-              builder:
-                  (context, state) => FutureBuilder(
-                    future: Future.delayed(const Duration(seconds: 2)),
-                    builder: (context, snapshot) => const Placeholder(),
+              path: '/student-profile',
+              pageBuilder:
+                  (context, state) => CustomTransitionPage(
+                    child: ProfileScreen(),
+                    transitionsBuilder: (
+                      context,
+                      animation,
+                      secondaryAnimation,
+                      child,
+                    ) {
+                      return SlideTransition(
+                        position: animation.drive(
+                          Tween<Offset>(
+                            begin: const Offset(1.0, 0.0),
+                            end: Offset.zero,
+                          ),
+                        ),
+                        child: child,
+                      );
+                    },
                   ),
             ),
           ],

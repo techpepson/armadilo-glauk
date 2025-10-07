@@ -224,8 +224,10 @@ class _TakeQuizScreenState extends State<TakeQuizScreen> {
                       children: [
                         const SizedBox(height: 10),
                         Text(
+                          textAlign: TextAlign.start,
+                          overflow: TextOverflow.clip,
                           q['query']?.toString() ?? 'Question',
-                          style: Theme.of(context).textTheme.titleMedium
+                          style: Theme.of(context).textTheme.bodyLarge
                               ?.copyWith(fontWeight: FontWeight.w600),
                         ),
                         const SizedBox(height: 16),
@@ -255,6 +257,8 @@ class _TakeQuizScreenState extends State<TakeQuizScreen> {
                                 _onSelectOption(index, val);
                               },
                               title: Text(
+                                textAlign: TextAlign.start,
+                                overflow: TextOverflow.clip,
                                 opt['option']?.toString() ?? '',
                                 style: Theme.of(context).textTheme.bodyLarge,
                               ),

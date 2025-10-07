@@ -31,32 +31,38 @@ class _AnalyticsTabState extends State<AnalyticsTab> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      physics: PageScrollPhysics(),
-      child: LayoutBuilder(
-        builder: (context, constraints) {
-          return ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: constraints.maxWidth),
-            child: Column(
-              children: [
-                _buildPredictionCard(),
-                SizedBox(height: 12),
-                _buildScoreSummaryCard(),
-                SizedBox(height: 12),
-                _buildMasteryCard(),
-                SizedBox(height: 12),
-                _buildStreaksCard(),
-                SizedBox(height: 12),
-                _buildSuggestionCard(),
-                SizedBox(height: 12),
-                _buildShareCard(),
-                SizedBox(height: 12),
-                _buildBottomCard(),
-                SizedBox(height: 12),
-              ],
-            ),
-          );
-        },
+    return RefreshIndicator(
+      color: Constants.primary,
+      onRefresh: () {
+        return Future.delayed(const Duration(seconds: 2));
+      },
+      child: SingleChildScrollView(
+        physics: PageScrollPhysics(),
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: constraints.maxWidth),
+              child: Column(
+                children: [
+                  _buildPredictionCard(),
+                  SizedBox(height: 12),
+                  _buildScoreSummaryCard(),
+                  SizedBox(height: 12),
+                  _buildMasteryCard(),
+                  SizedBox(height: 12),
+                  _buildStreaksCard(),
+                  SizedBox(height: 12),
+                  _buildSuggestionCard(),
+                  SizedBox(height: 12),
+                  _buildShareCard(),
+                  SizedBox(height: 12),
+                  _buildBottomCard(),
+                  SizedBox(height: 12),
+                ],
+              ),
+            );
+          },
+        ),
       ),
     );
   }
@@ -420,7 +426,7 @@ class _AnalyticsTabState extends State<AnalyticsTab> {
                   LinearProgressIndicator(
                     minHeight: 8,
                     borderRadius: BorderRadius.circular(6),
-                    value: averageByWeek.toDouble(),
+                    value: averageByWeek.toDouble() / 100,
                     valueColor: AlwaysStoppedAnimation(Constants.primary),
                     backgroundColor: Colors.grey,
                   ),
@@ -537,7 +543,7 @@ class _AnalyticsTabState extends State<AnalyticsTab> {
                                 LinearProgressIndicator(
                                   minHeight: 6,
                                   borderRadius: BorderRadius.circular(6),
-                                  value: courseScore,
+                                  value: courseScore / 100,
                                   valueColor: AlwaysStoppedAnimation(
                                     Constants.primary,
                                   ),

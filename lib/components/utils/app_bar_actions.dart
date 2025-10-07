@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:glauk/core/constants/constants.dart';
+import 'package:go_router/go_router.dart';
 
 class AppBarActions extends StatefulWidget {
   const AppBarActions({super.key, required this.userImage});
@@ -34,7 +35,9 @@ class _AppBarActionsState extends State<AppBarActions> {
 
             IconButton(
               icon: Icon(Icons.notifications_outlined),
-              onPressed: () {},
+              onPressed: () {
+                context.push('/notifications');
+              },
             ),
             SizedBox(width: Constants.smallSize),
           ],
