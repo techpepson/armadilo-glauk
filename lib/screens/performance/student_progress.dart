@@ -43,20 +43,11 @@ class _StudentProgressState extends State<StudentProgress> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              "Exams",
+              "Performance",
               style: TextStyle(
                 color: Theme.of(context).colorScheme.onSurface,
                 fontSize: Constants.mediumSize,
-                fontWeight: FontWeight.w600,
-                fontFamily: Constants.inter,
-              ),
-            ),
-            Text(
-              "Academic Performance",
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.onSurface,
-                fontSize: Constants.smallSize,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w400,
                 fontFamily: Constants.inter,
               ),
             ),
@@ -157,7 +148,7 @@ class _StudentProgressState extends State<StudentProgress> {
                             style: TextStyle(
                               color: Theme.of(context).colorScheme.onSurface,
                               fontSize: Constants.mediumSize,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w500,
                               fontFamily: Constants.inter,
                             ),
                           ),
@@ -166,7 +157,7 @@ class _StudentProgressState extends State<StudentProgress> {
                             style: TextStyle(
                               color: Constants.primary,
                               fontSize: Constants.smallSize,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w500,
                               fontFamily: Constants.inter,
                             ),
                           ),
@@ -187,7 +178,7 @@ class _StudentProgressState extends State<StudentProgress> {
                         style: TextStyle(
                           color: Theme.of(context).colorScheme.onSurface,
                           fontSize: Constants.largeSize,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w400,
                           fontFamily: Constants.inter,
                         ),
                       ),
@@ -206,7 +197,7 @@ class _StudentProgressState extends State<StudentProgress> {
                             style: TextStyle(
                               color: Constants.greyedText,
                               fontSize: Constants.smallSize,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w400,
                               fontFamily: Constants.inter,
                             ),
                           ),
@@ -232,7 +223,7 @@ class _StudentProgressState extends State<StudentProgress> {
                         style: TextStyle(
                           color: Constants.greyedText,
                           fontSize: Constants.smallSize,
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w400,
                           fontFamily: Constants.inter,
                         ),
                       ),
@@ -265,7 +256,7 @@ class _StudentProgressState extends State<StudentProgress> {
                         '$currentGpa/$targetGpa',
                         style: TextStyle(
                           fontFamily: Constants.inter,
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w400,
                           fontSize: Constants.mediumSize,
                         ),
                       ),
@@ -310,7 +301,7 @@ class _StudentProgressState extends State<StudentProgress> {
                           'Course Code',
                           style: TextStyle(
                             fontFamily: Constants.inter,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ),
@@ -319,7 +310,7 @@ class _StudentProgressState extends State<StudentProgress> {
                           'Grade',
                           style: TextStyle(
                             fontFamily: Constants.inter,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ),
@@ -328,7 +319,7 @@ class _StudentProgressState extends State<StudentProgress> {
                           'Credits',
                           style: TextStyle(
                             fontFamily: Constants.inter,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ),
@@ -337,7 +328,7 @@ class _StudentProgressState extends State<StudentProgress> {
                           'Grade Points',
                           style: TextStyle(
                             fontFamily: Constants.inter,
-                            fontWeight: FontWeight.w600,
+                            fontWeight: FontWeight.w400,
                           ),
                         ),
                       ),
@@ -495,7 +486,7 @@ class _StudentProgressState extends State<StudentProgress> {
           Text(
             style: TextStyle(
               fontFamily: Constants.inter,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w400,
               fontSize: Constants.smallSize,
               color: Colors.white,
             ),
@@ -535,7 +526,7 @@ class _StudentProgressState extends State<StudentProgress> {
                     'Manage Courses',
                     style: TextStyle(
                       fontFamily: Constants.inter,
-                      fontWeight: FontWeight.w700,
+                      fontWeight: FontWeight.w400,
                       fontSize: Constants.mediumSize,
                     ),
                   ),
@@ -582,7 +573,7 @@ class _StudentProgressState extends State<StudentProgress> {
                                     style: TextStyle(
                                       fontFamily: Constants.inter,
                                       color: Constants.textColor,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w400,
                                       fontSize: Constants.smallSize,
                                     ),
                                   ),
@@ -615,7 +606,7 @@ class _StudentProgressState extends State<StudentProgress> {
                                     style: TextStyle(
                                       fontFamily: Constants.inter,
                                       color: Constants.textColor,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w400,
                                       fontSize: Constants.smallSize,
                                     ),
                                   ),
@@ -649,7 +640,7 @@ class _StudentProgressState extends State<StudentProgress> {
                                     'Course Name *',
                                     style: TextStyle(
                                       fontFamily: Constants.inter,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w400,
                                       fontSize: Constants.smallSize,
                                     ),
                                   ),
@@ -673,7 +664,7 @@ class _StudentProgressState extends State<StudentProgress> {
                                     'Course Description *',
                                     style: TextStyle(
                                       fontFamily: Constants.inter,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w400,
                                       fontSize: Constants.smallSize,
                                     ),
                                   ),
@@ -712,7 +703,7 @@ class _StudentProgressState extends State<StudentProgress> {
                                     'Course Code *',
                                     style: TextStyle(
                                       fontFamily: Constants.inter,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w400,
                                       fontSize: Constants.smallSize,
                                     ),
                                   ),
@@ -743,7 +734,7 @@ class _StudentProgressState extends State<StudentProgress> {
                                               'Credit Hours *',
                                               style: TextStyle(
                                                 fontFamily: Constants.inter,
-                                                fontWeight: FontWeight.w600,
+                                                fontWeight: FontWeight.w400,
                                                 fontSize: Constants.smallSize,
                                               ),
                                             ),
@@ -775,7 +766,7 @@ class _StudentProgressState extends State<StudentProgress> {
                                               'Instructor',
                                               style: TextStyle(
                                                 fontFamily: Constants.inter,
-                                                fontWeight: FontWeight.w600,
+                                                fontWeight: FontWeight.w400,
                                                 fontSize: Constants.smallSize,
                                               ),
                                             ),
@@ -943,7 +934,7 @@ class _StudentProgressState extends State<StudentProgress> {
                                                   style: TextStyle(
                                                     fontFamily:
                                                         Constants.roboto,
-                                                    fontWeight: FontWeight.w600,
+                                                    fontWeight: FontWeight.w400,
                                                     fontSize:
                                                         Constants.smallSize,
                                                   ),
@@ -975,7 +966,7 @@ class _StudentProgressState extends State<StudentProgress> {
                                                           fontFamily:
                                                               Constants.inter,
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                              FontWeight.w400,
                                                           fontSize:
                                                               Constants
                                                                   .smallSize,
@@ -1011,7 +1002,7 @@ class _StudentProgressState extends State<StudentProgress> {
                                                           fontFamily:
                                                               Constants.inter,
                                                           fontWeight:
-                                                              FontWeight.w600,
+                                                              FontWeight.w400,
                                                           fontSize:
                                                               Constants
                                                                   .smallSize,
@@ -1049,7 +1040,7 @@ class _StudentProgressState extends State<StudentProgress> {
                                                   'Course Description',
                                                   style: TextStyle(
                                                     fontFamily: Constants.inter,
-                                                    fontWeight: FontWeight.w600,
+                                                    fontWeight: FontWeight.w400,
                                                     fontSize:
                                                         Constants.smallSize,
                                                   ),
@@ -1115,15 +1106,33 @@ class _StudentProgressState extends State<StudentProgress> {
                 ),
                 actions: [
                   TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Constants.appBg,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                    ),
                     onPressed: () => Navigator.pop(context),
-                    child: Text('CANCEL'),
+                    child: Text(
+                      'Cancel',
+                      style: TextStyle(color: Constants.textColor),
+                    ),
                   ),
-                  FilledButton(
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Constants.primary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                      ),
+                    ),
                     onPressed: () {
                       // TODO: Handle save action
                       Navigator.pop(context);
                     },
-                    child: Text('SAVE'),
+                    child: Text(
+                      'Save Changes',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ],
               ),
@@ -1145,7 +1154,7 @@ class _StudentProgressState extends State<StudentProgress> {
         label,
         style: TextStyle(
           color: Constants.primary,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w400,
           fontFamily: Constants.inter,
         ),
       ),

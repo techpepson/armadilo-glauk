@@ -23,10 +23,14 @@ class _QuizReviewScreenState extends State<QuizReviewScreen> {
       appBar: AppBar(
         title: const Text(
           'Quiz Review',
-          style: TextStyle(fontWeight: FontWeight.w600),
+          style: TextStyle(
+            fontSize: Constants.mediumSize,
+            fontWeight: FontWeight.w400,
+            fontFamily: Constants.inter,
+          ),
         ),
         elevation: 0,
-        centerTitle: true,
+        centerTitle: false,
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -94,7 +98,7 @@ class _QuizReviewScreenState extends State<QuizReviewScreen> {
                         textAlign: TextAlign.start,
                         widget.courseSlides['slideTitle'],
                         style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.w700,
+                          fontWeight: FontWeight.w400,
                           fontFamily: Constants.inter,
                         ),
                         maxLines: 2,
@@ -225,7 +229,7 @@ class _QuizReviewScreenState extends State<QuizReviewScreen> {
             Text(
               'Quiz Details',
               style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w400,
                 fontFamily: Constants.inter,
               ),
             ),
@@ -327,7 +331,7 @@ class _QuizReviewScreenState extends State<QuizReviewScreen> {
                 Text(
                   title,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w400,
                     fontFamily: Constants.inter,
                   ),
                 ),
@@ -398,7 +402,7 @@ class _QuizReviewScreenState extends State<QuizReviewScreen> {
                 Text(
                   'Ready to start?',
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 const SizedBox(height: 4),
@@ -414,7 +418,7 @@ class _QuizReviewScreenState extends State<QuizReviewScreen> {
                       '$estimatedTime minutes',
                       style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         color: Theme.of(context).colorScheme.primary,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ],

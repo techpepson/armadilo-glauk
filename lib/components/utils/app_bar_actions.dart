@@ -44,19 +44,24 @@ class _AppBarActionsState extends State<AppBarActions> {
         ),
 
         //user profile button
-        CircleAvatar(
-          radius: Constants.smallSize,
-          child:
-              widget.userImage.isNotEmpty
-                  ? CachedNetworkImage(
-                    imageUrl: widget.userImage,
-                    errorWidget: (context, url, error) {
-                      return const Icon(Icons.person);
-                    },
-                    placeholder: (context, url) => const Icon(Icons.person),
-                  )
-                  : const Icon(Icons.person),
-        ),
+        widget.userImage.isNotEmpty && widget.userImage != null
+            ? ClipRRect(
+              borderRadius: BorderRadiusGeometry.circular(50),
+              child: CachedNetworkImage(
+                fit: BoxFit.cover,
+                width: 40,
+                height: 40,
+                imageUrl: widget.userImage,
+                errorWidget: (context, url, error) {
+                  return const Icon(Icons.person);
+                },
+                placeholder: (context, url) => const Icon(Icons.person),
+              ),
+            )
+            : CircleAvatar(
+              backgroundColor: Constants.primary.withAlpha(60),
+              child: Icon(Icons.person, color: Constants.primary),
+            ),
         SizedBox(width: Constants.smallSize),
       ],
     );

@@ -19,7 +19,14 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
-            title: const Text('Analytics'),
+            title: const Text(
+              'Analytics',
+              style: TextStyle(
+                fontSize: Constants.mediumSize,
+                fontWeight: FontWeight.w400,
+                fontFamily: Constants.inter,
+              ),
+            ),
             bottom: TabBar(
               physics: BouncingScrollPhysics(),
               indicatorColor: Constants.primary.withAlpha(70),

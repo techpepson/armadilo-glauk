@@ -1,12 +1,14 @@
 import 'dart:io';
 
 import 'package:dotted_border/dotted_border.dart';
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:glauk/components/auth/auth_form.dart';
 import 'package:glauk/components/custom_dropdown_menu.dart';
 import 'package:glauk/components/utils/empty_widget.dart';
 import 'package:glauk/core/constants/constants.dart';
+import 'package:glauk/data/student_data.dart';
 import 'dart:developer' as dev;
 import 'package:glauk/services/util_services.dart';
 import 'package:glauk/data/course_data.dart';
@@ -48,6 +50,8 @@ class _StudentQuizScreenState extends State<StudentQuizScreen> {
   List<Map<String, dynamic>> notStartedQuizzes = [];
   List<Map<String, dynamic>> retakeRecommendedQuizzes = [];
   UtilService utilService = UtilService();
+
+  String? _selected;
 
   @override
   void initState() {
@@ -132,7 +136,17 @@ class _StudentQuizScreenState extends State<StudentQuizScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Student Quiz')),
+      appBar: AppBar(
+        title: Text(
+          'Student Quiz',
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.onSurface,
+            fontSize: Constants.mediumSize,
+            fontWeight: FontWeight.w400,
+            fontFamily: Constants.inter,
+          ),
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         heroTag: 'slides_upload_fab',
         onPressed: () async {
@@ -189,7 +203,7 @@ class _StudentQuizScreenState extends State<StudentQuizScreen> {
             'Your Learning Progress',
             style: Theme.of(
               context,
-            ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+            ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w400),
           ),
           const SizedBox(height: 16),
           Row(
@@ -216,7 +230,7 @@ class _StudentQuizScreenState extends State<StudentQuizScreen> {
                       'Level $studentLevel',
                       style: TextStyle(
                         color: Constants.primary,
-                        fontWeight: FontWeight.w600,
+                        fontWeight: FontWeight.w400,
                         fontSize: 14,
                         fontFamily: Constants.inter,
                       ),
@@ -383,7 +397,7 @@ class _StudentQuizScreenState extends State<StudentQuizScreen> {
                   isSelected
                       ? Constants.primary
                       : Theme.of(context).textTheme.bodyLarge?.color,
-              fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+              fontWeight: isSelected ? FontWeight.w400 : FontWeight.normal,
             ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
@@ -588,7 +602,7 @@ class _StudentQuizScreenState extends State<StudentQuizScreen> {
                                     style: Theme.of(context)
                                         .textTheme
                                         .titleMedium
-                                        ?.copyWith(fontWeight: FontWeight.w600),
+                                        ?.copyWith(fontWeight: FontWeight.w400),
                                     maxLines: 2,
                                   ),
                                   const SizedBox(height: 4),
@@ -780,7 +794,7 @@ class _StudentQuizScreenState extends State<StudentQuizScreen> {
             label,
             style: TextStyle(
               fontSize: 12,
-              fontWeight: FontWeight.w500,
+              fontWeight: FontWeight.w400,
               color: color.withValues(alpha: 0.9),
             ),
           ),
@@ -844,6 +858,9 @@ class _StudentQuizScreenState extends State<StudentQuizScreen> {
   //show slide addition function
 
   Future<void> _showSlideAdditionDialog() async {
+    final theme = Theme.of(context);
+    final studentData = StudentData();
+    final courses = studentData.courseData;
     final isPdf =
         (selectedFileExtension == 'pdf' ||
             selectedFileExtension == 'ppt' ||
@@ -863,12 +880,33 @@ class _StudentQuizScreenState extends State<StudentQuizScreen> {
             return AlertDialog(
               actions: [
                 TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Constants.appBg,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                  ),
                   onPressed: () {
                     Navigator.pop(context, false);
                   },
-                  child: Text('Cancel'),
+                  child: Text(
+                    'Cancel',
+                    style: TextStyle(color: Constants.textColor),
+                  ),
                 ),
-                TextButton(onPressed: () {}, child: Text('Generate Quiz')),
+                TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Constants.primary,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: Text(
+                    'Generate Quiz',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
               ],
               insetPadding: EdgeInsets.all(5),
               contentPadding: EdgeInsets.all(20),
@@ -1004,11 +1042,115 @@ class _StudentQuizScreenState extends State<StudentQuizScreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Course Code *'),
-                              AuthForm(
-                                labelText: 'Course Code',
-                                hintText: 'Enter course code',
-                                onChanged: (value) {},
+                              Text('Course *'),
+                              DropdownSearch<Map<String, dynamic>>(
+                                items: (filter, loadProps) => courses,
+                                selectedItem: courses.first,
+                                onChanged: (value) {
+                                  dev.log(value?['courseCode']);
+                                },
+                                compareFn: (a, b) => a['id'] == b['id'],
+                                itemAsString: (item) => item['name'],
+                                decoratorProps: DropDownDecoratorProps(
+                                  decoration: InputDecoration(
+                                    hintText: 'Select a course',
+                                    prefixIcon: const Icon(
+                                      Icons.school_outlined,
+                                    ),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    filled: true,
+                                    isDense: true,
+                                    contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 12,
+                                      vertical: 12,
+                                    ),
+                                  ),
+                                ),
+                                suffixProps: DropdownSuffixProps(
+                                  dropdownButtonProps: DropdownButtonProps(
+                                    iconOpened: Icon(Constants.dropDownUpIcon),
+                                    iconClosed: Icon(Constants.dropDownIcon),
+                                  ),
+                                ),
+                                popupProps: PopupProps.menu(
+                                  showSearchBox: true,
+                                  searchFieldProps: TextFieldProps(
+                                    decoration: InputDecoration(
+                                      hintText: 'Search...',
+                                      prefixIcon: const Icon(Icons.search),
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                      isDense: true,
+                                    ),
+                                  ),
+                                  itemBuilder: (
+                                    context,
+                                    item,
+                                    isDisabled,
+                                    isSelected,
+                                  ) {
+                                    return Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 12,
+                                        vertical: 10,
+                                      ),
+                                      decoration: BoxDecoration(
+                                        color:
+                                            isSelected
+                                                ? theme.colorScheme.primary
+                                                    .withOpacity(0.08)
+                                                : Colors.transparent,
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.book_outlined,
+                                            size: 18,
+                                            color:
+                                                isSelected
+                                                    ? theme.colorScheme.primary
+                                                    : theme.hintColor,
+                                          ),
+                                          const SizedBox(width: 8),
+                                          Expanded(
+                                            child: Text(
+                                              item['name'],
+                                              style: theme.textTheme.bodyMedium
+                                                  ?.copyWith(
+                                                    color:
+                                                        theme
+                                                            .textTheme
+                                                            .bodyLarge
+                                                            ?.color,
+                                                    fontWeight:
+                                                        isSelected
+                                                            ? FontWeight.w400
+                                                            : FontWeight.w400,
+                                                  ),
+                                            ),
+                                          ),
+                                          if (isSelected)
+                                            Icon(
+                                              Icons.check,
+                                              size: 18,
+                                              color: theme.colorScheme.primary,
+                                            ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                ),
+
+                                dropdownBuilder: (context, selectedItem) {
+                                  return Text(
+                                    selectedItem?['name'] ?? 'Select course',
+                                    style: theme.textTheme.bodyMedium,
+                                  );
+                                },
                               ),
                               SizedBox(height: 16),
                               CustomDropdownMenu(

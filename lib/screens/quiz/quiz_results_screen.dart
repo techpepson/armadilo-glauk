@@ -28,10 +28,14 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
       appBar: AppBar(
         title: const Text(
           'Quiz Results',
-          style: TextStyle(fontWeight: FontWeight.w600),
+          style: TextStyle(
+            fontSize: Constants.mediumSize,
+            fontWeight: FontWeight.w400,
+            fontFamily: Constants.inter,
+          ),
         ),
         elevation: 0,
-        centerTitle: true,
+        centerTitle: false,
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -104,7 +108,7 @@ class _QuizResultsScreenState extends State<QuizResultsScreen> {
                 widget.courseSlides['slideTitle'],
                 style: Theme.of(
                   context,
-                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
+                ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w400),
               ),
               const SizedBox(height: 8),
               widget.courseSlides['scores'] > 60

@@ -139,7 +139,14 @@ class _TakeQuizScreenState extends State<TakeQuizScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Take Quiz'),
+        title: const Text(
+          'Take Quiz',
+          style: TextStyle(
+            fontSize: Constants.mediumSize,
+            fontWeight: FontWeight.w400,
+            fontFamily: Constants.inter,
+          ),
+        ),
         actions: [
           // Timer display
           Padding(
@@ -228,7 +235,7 @@ class _TakeQuizScreenState extends State<TakeQuizScreen> {
                           overflow: TextOverflow.clip,
                           q['query']?.toString() ?? 'Question',
                           style: Theme.of(context).textTheme.bodyLarge
-                              ?.copyWith(fontWeight: FontWeight.w600),
+                              ?.copyWith(fontWeight: FontWeight.w400),
                         ),
                         const SizedBox(height: 16),
                         ...options.map((opt) {
