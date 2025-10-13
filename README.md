@@ -1,6 +1,6 @@
-# Glauk — Quiz Generation App
+# Glauk — AI-Powered Study Coach
 
-A Flutter app that helps students learn from course slides by generating quizzes, tracking scores, and visualizing learning analytics.
+A Flutter app that helps students learn from course slides by generating quizzes, tracking scores, and visualizing learning analytics, all in the quest of coaching them to excel in their academics.
 
 ## Overview
 - **Entry point:** `lib/main.dart` using `MaterialApp.router` with `go_router`
